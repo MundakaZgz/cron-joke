@@ -1,6 +1,6 @@
 var CronJob = require('cron').CronJob;
-var jokeService = require('./jokeService');
-var mailService = require('./mail/mailService');
+var jokeService = require('./services/jokeService');
+var mailService = require('./services/mail/mailService');
 
 var job = new CronJob('0,30 * * * * 1-5', function() {
         jokeService.getJoke()
