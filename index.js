@@ -1,28 +1,27 @@
 var CronJob = require('cron').CronJob;
-var request = require('request');
 var nodemailer = require('nodemailer');
+var JokeService = require('./jokeService');
+var jokeService = new JokeService();
 
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: '',
-        pass: ''
+        user: 'joseantonio@zartis.com',
+        pass: 'Northe15.'
     }
 });
 
 var mailOptions = {
-    from: '',
-    to: '',
+    from: 'joseantonio@zartis.com',
+    to: 'joseantonio@zartis.com',
     subject: 'Chiste del día!!!',
     text: ''
 };
 
-var job = new CronJob('0 10 9,17 * * 1-5', function() {
-        var joke = getJoke()
+var job = new CronJob('0,30 * * * * 1-5', function() {
+        jokeService.getJoke()
             .then(function(joke) { sendJoke(joke); })
             .catch(function(err) { console.log(err); });
-    }, function() {
-        /* This function is executed when the job stops */
     },
     true, /* Start the job right now */
     'Europe/Madrid' /* Time zone of this job. */
@@ -36,15 +35,5 @@ var sendJoke = function(joke) {
         } else {
             console.log('Email sent: ' + info.respnse);
         }
-    });
-};
-
-var getJoke = function() {
-
-    return new Promise(function(resolve, reject) {
-        request('https://icanhazdadjoke.com/', { json: true }, (err, res, body) => {
-            if (err) { reject(err); }
-            resolve(res.body.joke);
-        });
     });
 };
