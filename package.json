@@ -1,0 +1,19 @@
+{
+    "name": "cron-joke",
+    "version": "1.0.0",
+    "description": "Send dad jokes every day",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Jose A. Herrero",
+    "license": "ISC",
+    "dependencies": {
+        "cron": "^1.3.0",
+        "node-cron": "^1.2.1",
+        "nodemailer": "^4.6.0",
+        "nodemon": "^1.15.1",
+        "request": "^2.83.0"
+    }
+}
