@@ -2,7 +2,7 @@ var request = require('request');
 
 const SERVICE_URL = 'https://icanhazdadjoke.com';
 
-function JokeService() {
+function jokeService() {
     this.getJoke = function() {
         return new Promise(function(resolve, reject) {
             request(SERVICE_URL, { json: true }, (err, res, body) => {
@@ -13,4 +13,4 @@ function JokeService() {
     };
 };
 
-module.exports = JokeService;
+module.exports = new jokeService();
