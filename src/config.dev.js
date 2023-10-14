@@ -3,9 +3,9 @@ module.exports = {
         user: 'someone@gmail.com',
         pass: '*****'
     },
-    mail: {
-        from: 'someone@gmail.com',
-        to: 'someone@gmail.com',
+    mailOptions: {
+        from: 'ethereal.user@ethereal.email',
+        to: '******@gmail.com',
         subject: 'Chiste del día'
     }
 }

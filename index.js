@@ -1,11 +1,10 @@
 var CronJob = require('cron').CronJob;
-var jokeService = require('./services/jokeService');
-var mailService = require('./services/mail/mailService');
+var service = require('./src/index');
 
-var job = new CronJob('0,30 * * * * 1-5', function() {
-        jokeService.getJoke()
-            .then(function(joke) { mailService.sendJoke(joke); })
-            .catch(function(err) { console.log(err); });
+// create a cron service that retrieves the information from the joke service and sends it to the mail service
+// var job = new CronJob('0,30 * * * * 1-5', () => {
+var job = new CronJob('* * * * *', () => {
+        service.sendMail();
     },
     true, /* Start the job right now */
     'Europe/Madrid' /* Time zone of this job. */

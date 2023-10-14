@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header: {
+            text-align: center; 
+            height: 30px; 
+            background-color: #f2f2f2;
+            width: 100%;
+            border: 1px solid black;
+            padding: 10px;
+        }
+        body: {
+            color: black;
+            width: 100%;
+        }
+        footer: {
+            text-align: center; 
+            height: 30px; 
+            background-color: #f2f2f2;
+            width: 100%;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        {{>header}}
+        <div>
+            <br>
+                {{joke}}
+            <br>
+        </div>
+        {{>footer}}
+    </div>
+</body>
+</html>
